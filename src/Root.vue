@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="root">
     <header>
       <h1>HANG SU</h1>
       <nav class="header-nav">
@@ -61,7 +61,7 @@ nav {
 li {
   display: inline-block;
   width: 19%;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   text-align: center;
   cursor: pointer;
   opacity: 0.5;
