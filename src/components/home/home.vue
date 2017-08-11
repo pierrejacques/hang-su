@@ -1,5 +1,7 @@
 <template lang="html">
-  <big-slider></big-slider>
+  <div class="home">
+    <big-slider></big-slider>
+  </div>
 </template>
 
 <script>
@@ -12,5 +14,8 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="css" scoped>
+.home {
+  flex-grow: 1;
+}
 </style>

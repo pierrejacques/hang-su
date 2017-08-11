@@ -80,14 +80,13 @@ export default {
 
 <style lang="css" scoped>
 .big-slider {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
+  margin: auto;
   width: 1000px;
-  height: 600px;
+  height: 500px;
   background: pink;
   overflow: hidden;
+  box-shadow: 0 2px 10px hsla(0, 0%, 50%, 0.5);
 }
 
 /* 翻图btn */
@@ -100,13 +99,14 @@ export default {
   height: 200px;
   width: 200px;
   border-radius: 50%;
-  background: hsla(0, 0%, 0% ,0.3);
+  background: hsla(0, 0%, 0% ,0.2);
   opacity: 0;
   transition: 0.5s;
   cursor: pointer;
 }
 .slider-btn::before {
   content: '';
+  opacity: 0.8;
   position: absolute;
   top: 50%;
   width: 30px;
@@ -162,7 +162,7 @@ export default {
   opacity: 0.2;
 }
 .ctrl.active, .ctrl:hover {
-  opacity: 0.5;
+  opacity: 0.2;
 }
 
 /* 图片 */
@@ -170,7 +170,6 @@ export default {
   position: absolute;
   width: 100%;
   height: 100%;
-  box-shadow: 0 0 10px orange inset;
   background: white;
   top: 0;
   left: 0;

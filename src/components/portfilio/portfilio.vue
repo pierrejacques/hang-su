@@ -1,5 +1,5 @@
 <template lang="html">
-
+  <div class="portfilio"></div>
 </template>
 
 <script>
@@ -9,4 +9,7 @@ export default {
 </script>
 
 <style lang="css">
+.portfilio {
+  flex-grow: 1;
+}
 </style>
