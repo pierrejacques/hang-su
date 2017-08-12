@@ -3,8 +3,12 @@
 </template>
 
 <script>
+import browser from '@/common/components/browser'
 export default {
-  name: 'daily'
+  name: 'daily',
+  components: {
+    browser
+  }
 }
 </script>
 

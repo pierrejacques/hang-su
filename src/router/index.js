@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import home from '@/components/home/home'
-import portfilio from '@/components/portfilio/portfilio'
-import daily from '@/components/daily/daily'
-import showcase from '@/components/showcase/showcase'
-import about from '@/components/about/about'
+import home from '@/pages/home/home'
+import portfilio from '@/pages/portfilio/portfilio'
+import daily from '@/pages/daily/daily'
+import showcase from '@/pages/showcase/showcase'
+import about from '@/pages/about/about'
 
 Vue.use(Router)
 
