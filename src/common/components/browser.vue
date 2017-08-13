@@ -107,17 +107,13 @@ export default {
 <style lang="css" scoped>
 /* 大布局 */
 .browser {
-	width: 100vw;
-	padding: 0 10vw;
-	min-width: 1000px;
-	box-sizing: border-box;
 }
 
 /* detail */
 .detail, .grids {
   display: inline-block;
   position: relative;
-	height: 80vh;
+  height: 560px;
 }
 .detail::before, .big-view::before {
   content: '';
@@ -129,8 +125,8 @@ export default {
   pointer-events: none;
 }
 .detail {
-	width: calc(100% - 70px - 470px);
-	margin-right: 70px;
+	width: calc(100% - 30px - 460px);
+	margin-right: 30px;
 }
 .loading::before {
   opacity: 0.8;
@@ -140,21 +136,22 @@ export default {
 	top: 0; left: 50%;
 	transform: translate(-50%, 0);
   max-width: 100%;
-  max-height: 100%;
+  max-height: 530px;
   cursor: zoom-in;
 }
 
 /* grids */
 .grids {
-  width: 460px;
+  width: 450px;
   overflow-y: auto;
 }
 .grid {
   display: inline-block;
+  float: left;
   width: 100px;
   height: 100px;
   background: white;
-  margin: 0 10px 5px 0;
+  margin: 0 4px 8px;
   line-height: 0;
   background: gray;
   background-size: 400px; /* 100 * 4 */
@@ -259,7 +256,7 @@ export default {
 .close-btn::after {
   transform: rotate(-45deg);
 }
-	
+
 /* main blur */
 main.blur {
 	filter: blur(10px);

@@ -98,10 +98,8 @@ export default {
 .big-slider {
   position: relative;
   margin: auto;
-  width: 143vh;
-  min-width: 815px;
-  height: 95vh;
-  min-height: 540px;
+  width: 100%;
+  height: 662.6px; /* 100/163*108 */
   background: transparent;
   overflow: hidden;
   box-shadow: 0 2px 10px hsla(0, 0%, 50%, 0.5);

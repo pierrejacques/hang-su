@@ -34,7 +34,7 @@ export default {
     return {
       navs: [
         'home',
-        'portfilio',
+        'portfolio',
         'daily',
         'showcase',
         'about'
@@ -73,13 +73,9 @@ body {
   width: 1000px;
   min-height: 100vh;
   margin: auto;
-  background: black;
 }
-header, footer { /* 宽度 1000 */
-  box-sizing: border-box;
-  width: 100%;
-  min-width: 815px;
-  padding: 30px 15%;
+header { /* 宽度 1000 */
+  padding: 30px 0;
 }
 hgroup, nav {
   display: inline-block;
@@ -117,7 +113,7 @@ li:hover, li.active {
 }
 
 footer {
-  padding-top: 20px;
+  padding: 20px 0 50px;
 }
 .copyright {
   color: gray;

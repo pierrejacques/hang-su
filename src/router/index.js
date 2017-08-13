@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import home from '@/pages/home/home'
-import portfilio from '@/pages/portfilio/portfilio'
+import portfolio from '@/pages/portfolio/portfolio'
 import daily from '@/pages/daily/daily'
 import showcase from '@/pages/showcase/showcase'
 import about from '@/pages/about/about'
@@ -16,9 +16,9 @@ export default new Router({
       component: home
     },
     {
-      path: '/portfilio',
-      name: 'portfilio',
-      component: portfilio
+      path: '/portfolio',
+      name: 'portfolio',
+      component: portfolio
     },
     {
       path: '/daily',
