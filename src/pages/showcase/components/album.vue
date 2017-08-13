@@ -15,8 +15,8 @@ export default {
   ],
   data () {
     return {
-      title: '',
-      date: '',
+      title: 'dummy',
+      date: 'dummy',
       src: undefined,
       pics: []
     }
@@ -28,7 +28,7 @@ export default {
         this.title = data.title
         this.date = data.date
         this.pics = data.pics
-        api.getImg('data.icon', url => {
+        api.getImg(data.icon, url => {
           this.src = url
         })
       }
@@ -43,8 +43,23 @@ export default {
   height: 250px;
   width: 280px;
   margin: 0 20px 50px;
-  background: black;
 }
 .icon-image {
+  width: 280px;
+  height: 187px;
+}
+.name, .date {
+  text-align: center;
+  margin: 0;
+  color: #555;
+}
+.name {
+  font-weight: 400;
+  font-size: 1.1em;
+  margin-top: 10px;
+  text-decoration: underline;
+}
+.date {
+  font-weight: 300;
 }
 </style>

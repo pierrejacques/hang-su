@@ -35,6 +35,6 @@ export default {
 .subtitle {
   font-size: 1em;
   line-height: 0;
-  margin-bottom: 100px;
+  margin-bottom: 80px;
 }
 </style>
