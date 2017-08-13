@@ -4,10 +4,12 @@
       <div v-for="(pic, idx) in pics"
            class="pic"
            :class="{
+             'loading': !srcs[idx],
              'current': idx === currentPic,
              'pre': idx === getPre(),
              'post': idx === getPost(),
            }">
+         <img :src="srcs[idx]">
       </div>
     </div>
     <div class="heat-area left-area">
@@ -20,20 +22,24 @@
       <div v-for="(pic, idx) in pics"
            class="ctrl"
            :class="{'active': idx === currentPic}"
-           @click="toSelect(idx)"></div>
+           @click="toSelect(idx)">
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import api from '@/common/utils/api'
+
 const gap = 3000 // 切换时间间隔(ms)
 let timer
+
 export default {
   name: 'bigSlider',
   data () {
     return {
       srcs: [],
-      pics: [ 1, 2, 3, 4 ], // 图片数量一定要大于三，不然滑动特效会有矛盾出现
+      pics: [], // 图片数量一定要大于三，不然滑动特效会有矛盾出现
       currentPic: undefined
     }
   },
@@ -43,12 +49,6 @@ export default {
         clearTimeout(timer)
       }
       this.currentPic = idx
-      // api.getImg(this.pics[idx])
-      // .then(
-      //   src => {
-      //     更新src
-      //   }
-      // )
       timer = setTimeout(() => {
         this.toPost()
       }, gap)
@@ -64,16 +64,30 @@ export default {
     },
     getPost () {
       return this.currentPic >= this.pics.length - 1 ? 0 : this.currentPic + 1
+    },
+    isValid (idx) {
+      return idx >= 0 && idx < this.pics.length
+    },
+    getImgs (idx) {
+      if (this.isValid(idx)) {
+        api.getImg(this.pics[idx], url => {
+          this.srcs[idx] = url
+          this.getImgs(idx + 1)
+        })
+      }
     }
   },
   created () {
-    // api.getJSON('cover')
-    // .then(
-    //   data => {
-    //     pics = data.urls,
-    //   }
-    // )
-    this.toSelect(0)
+    api.getJSON('home')
+    .then(
+      data => {
+        this.pics = data
+        if (data && data.length) {
+          this.getImgs(0)
+        }
+        this.toSelect(0)
+      }
+    )
   }
 }
 </script>
@@ -82,8 +96,8 @@ export default {
 .big-slider {
   position: relative;
   margin: auto;
-  width: 1000px;
-  height: 500px;
+  width: 815px;
+  height: 540px;
   background: pink;
   overflow: hidden;
   box-shadow: 0 2px 10px hsla(0, 0%, 50%, 0.5);
@@ -157,12 +171,12 @@ export default {
   height: 10px;
   margin: 5px;
   border-radius: 50%;
-  background: black;
+  background: white;
   transition: 0.3s;
   opacity: 0.2;
 }
 .ctrl.active, .ctrl:hover {
-  opacity: 0.2;
+  opacity: 0.7;
 }
 
 /* 图片 */
@@ -174,6 +188,10 @@ export default {
   top: 0;
   left: 0;
   visibility: hidden;
+}
+.pic > img {
+  with: 100%;
+  height: 100%;
 }
 .current, .pre, .post {
   transition: left 1s;

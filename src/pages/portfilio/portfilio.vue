@@ -1,5 +1,7 @@
 <template lang="html">
-  <div class="portfilio"></div>
+  <div class="portfilio">
+    <browser name="portfilio"></browser>
+  </div>
 </template>
 
 <script>

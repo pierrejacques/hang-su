@@ -1,5 +1,7 @@
 <template lang="html">
-  <div class="daily"></div>
+  <div class="daily">
+    <browser name="daily"></browser>
+  </div>
 </template>
 
 <script>
