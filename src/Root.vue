@@ -69,7 +69,8 @@ export default {
 header, footer { /* 宽度 1000 */
   box-sizing: border-box;
   width: 100%;
-  padding: 30px calc(50vw - 500px) 20px;
+  min-width: 815px;
+  padding: 30px 10% 20px;
 }
 hgroup, nav {
   display: inline-block;

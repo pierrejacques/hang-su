@@ -18,20 +18,20 @@
     <div class="heat-area right-area">
       <div class="slider-btn right-btn" @click="toPost()"></div>
     </div>
-    <div class="ctrls">
-      <div v-for="(pic, idx) in pics"
-           class="ctrl"
-           :class="{'active': idx === currentPic}"
-           @click="toSelect(idx)">
-      </div>
+  <!--   <div class="ctrls">
+    <div v-for="(pic, idx) in pics"
+         class="ctrl"
+         :class="{'active': idx === currentPic}"
+         @click="toSelect(idx)">
     </div>
+  </div> -->
   </div>
 </template>
 
 <script>
 import api from '@/common/utils/api'
 
-const gap = 3000 // 切换时间间隔(ms)
+const gap = 4000 // 切换时间间隔(ms)
 let timer
 
 export default {
@@ -71,7 +71,9 @@ export default {
     getImgs (idx) {
       if (this.isValid(idx)) {
         api.getImg(this.pics[idx], url => {
-          this.srcs[idx] = url
+          if (!this.srcs[idx]) {
+            this.srcs.splice(idx, 1, url)
+          }
           this.getImgs(idx + 1)
         })
       }
@@ -96,9 +98,11 @@ export default {
 .big-slider {
   position: relative;
   margin: auto;
-  width: 815px;
-  height: 540px;
-  background: pink;
+  width: 81.5vw;
+  min-width: 815px;
+  height: 54vw;
+  min-height: 540px;
+  background: transparent;
   overflow: hidden;
   box-shadow: 0 2px 10px hsla(0, 0%, 50%, 0.5);
 }
@@ -187,15 +191,15 @@ export default {
   background: white;
   top: 0;
   left: 0;
-  visibility: hidden;
+  opacity: 0;
 }
 .pic > img {
   with: 100%;
   height: 100%;
 }
 .current, .pre, .post {
-  transition: left 1s;
-  visibility: visible;
+  transition: left 1s ease, opacity 0.1s ease 1s;
+  opacity: 1;
   top: 0;
 }
 .pre {

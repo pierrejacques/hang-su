@@ -1,5 +1,7 @@
 <template lang="html">
-<div class="showcase"></div>
+  <div class="showcase">
+    妹写呢
+  </div>
 </template>
 
 <script>
