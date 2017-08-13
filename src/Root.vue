@@ -64,7 +64,10 @@ export default {
 #root {
   display: flex;
   flex-direction: column;
+  width: 1000px;
   min-height: 100vh;
+  margin: auto;
+  background: black;
 }
 header, footer { /* 宽度 1000 */
   box-sizing: border-box;
