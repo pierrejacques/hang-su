@@ -19,7 +19,7 @@
     <footer>
       <span class="copyright">© 2017 by HANG SU</span>
       <span class="links">
-        <span class="iconfont icon-wechat"><img class="wechat-code" src="./wechat.jpg"></span>
+        <span class="iconfont icon-wechat"><img class="wechat-code" src="static/wechat.jpg"></span>
         <a target="_blank" href="http://weibo.com/b1ackcube" class="iconfont icon-weibo"></a>
         <a target="_blank" href="https://www.instagram.com/bompea_su/" class="iconfont icon-instagram"></a>
       </span>
@@ -57,7 +57,13 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
+html::-webkit-scrollbar {
+	width: 0;
+}
+body {
+	box-sizing: padding-box;
+}
 * {
   font-family: 'Open Sans', sans-serif;
 }
@@ -73,7 +79,7 @@ header, footer { /* 宽度 1000 */
   box-sizing: border-box;
   width: 100%;
   min-width: 815px;
-  padding: 30px 10% 20px;
+  padding: 30px 15%;
 }
 hgroup, nav {
   display: inline-block;
@@ -100,11 +106,11 @@ nav {
 li {
   display: inline-block;
   width: 19%;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 300;
   text-align: center;
   cursor: pointer;
-  opacity: 0.4;
+  opacity: 0.6;
 }
 li:hover, li.active {
   opacity: 1;
@@ -124,6 +130,7 @@ footer {
 .links > a,
 .links > span,
 .links > a:active {
+	font-size: 1.2em;
   position: relative;
   color: gray;
   text-decoration: none;

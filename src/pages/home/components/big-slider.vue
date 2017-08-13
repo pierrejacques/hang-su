@@ -98,9 +98,9 @@ export default {
 .big-slider {
   position: relative;
   margin: auto;
-  width: 81.5vw;
+  width: 143vh;
   min-width: 815px;
-  height: 54vw;
+  height: 95vh;
   min-height: 540px;
   background: transparent;
   overflow: hidden;
@@ -194,11 +194,11 @@ export default {
   opacity: 0;
 }
 .pic > img {
-  with: 100%;
+  width: 100%;
   height: 100%;
 }
 .current, .pre, .post {
-  transition: left 1s ease, opacity 0.1s ease 1s;
+  transition: left 1s, opacity 0.1s ease 1s;
   opacity: 1;
   top: 0;
 }
