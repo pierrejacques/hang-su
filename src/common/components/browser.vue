@@ -1,11 +1,13 @@
 <template lang="html">
   <div class="browser">
-    <section class="detail" :class="{'loading': isDetailLoading}">
-      <img :src="detailSrc"  @click="toOpenBig">
-    </section>
-    <section class="grids">
-      <div class="grid" v-for="(pic, idx) in pics" @click="toSelect(idx)"></div>
-    </section>
+		<main :class="{blur: isBigView}">
+			<section class="detail" :class="{'loading': isDetailLoading}">
+				<img :src="detailSrc"  @click="toOpenBig">
+			</section>
+			<section class="grids">
+				<div class="grid" v-for="(pic, idx) in pics" @click="toSelect(idx)"></div>
+			</section>
+		</main>
     <section class="big-view" v-if="isBigView" :class="{'loading': isDetailLoading}" >
       <img :src="detailSrc" @click="toPost()">
       <div class="heat-area left-area" v-if="hasPre()">
@@ -105,18 +107,17 @@ export default {
 <style lang="css" scoped>
 /* 大布局 */
 .browser {
-  display: flex;
-  height: 76vh;
-  padding: 0 50px;
+	width: 100vw;
+	padding: 0 10vw;
+	min-width: 1000px;
+	box-sizing: border-box;
 }
 
 /* detail */
-.detail {
-  display: flex;
+.detail, .grids {
+  display: inline-block;
   position: relative;
-  max-height: 100%;
-  max-width: calc(100% - 490px);
-  margin-right: 50px;
+	height: 80vh;
 }
 .detail::before, .big-view::before {
   content: '';
@@ -127,11 +128,17 @@ export default {
   opacity: 0;
   pointer-events: none;
 }
+.detail {
+	width: calc(100% - 70px - 470px);
+	margin-right: 70px;
+}
 .loading::before {
   opacity: 0.8;
 }
 .detail > img {
-  margin: auto;
+	position: absolute;
+	top: 0; left: 50%;
+	transform: translate(-50%, 0);
   max-width: 100%;
   max-height: 100%;
   cursor: zoom-in;
@@ -139,16 +146,15 @@ export default {
 
 /* grids */
 .grids {
-  height: 100%;
-  width: 440px;
-  overflow-y: scroll;
+  width: 460px;
+  overflow-y: auto;
 }
 .grid {
   display: inline-block;
   width: 100px;
   height: 100px;
   background: white;
-  margin: 5px 10px 0 0;
+  margin: 0 10px 5px 0;
   line-height: 0;
   background: gray;
   background-size: 400px; /* 100 * 4 */
@@ -170,6 +176,7 @@ export default {
   margin: auto;
   box-shadow: 0 2px 10px hsla(0, 0%, 0%, 0.7);
 }
+
 /* big view 翻图 */
 /* 翻图btn */
 .heat-area:hover .slider-btn {
@@ -230,11 +237,11 @@ export default {
   right: 0; top: 0;
   width: 150px;
   height: 150px;
-  opacity: 0.15;
+  opacity: 0.3;
   background: black;
 }
 .close-btn:hover {
-  opacity: 0.4;
+  opacity: 0.5;
 }
 .close-btn::before, .close-btn::after {
   content: '';
@@ -251,5 +258,10 @@ export default {
 }
 .close-btn::after {
   transform: rotate(-45deg);
+}
+	
+/* main blur */
+main.blur {
+	filter: blur(10px);
 }
 </style>
