@@ -1,6 +1,5 @@
 <template lang="html">
   <div class="about">
-    包皮Sex & Porn
   </div>
 </template>
 
